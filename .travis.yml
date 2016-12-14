@@ -1,0 +1,16 @@
+branches:
+  only:
+  - master
+language: node_js
+node_js:
+- 6
+sudo: false
+notifications:
+  email: false
+script:
+- node hooks/triggerExampleProjBuild.ts
+env:
+  matrix:
+  - TARGET_REPO="dpa99c/cordova-plugin-config-command-example"
+  global:
+    secure: tbUiyFVZuE8zcrXR36ALA7iRwg0L56L8B/v3ZCybO4k6Sk3ePeb407QdleR5kg9T/7mEfiWTCPUzsJnxNF34qwcp82MUDoBijgAaPTRL1IkZpJaq5LgECt06zkQRf0WfTStA886+/ItxZzuB3U6ae9D5wCf4DplWXMh2jXOoFVbbFSgd2vNkG/sbpGbNDyhOH6EFDZo7o/uh2nMyvkgStYc8cmvYfvaGqq5cbPqqnDmoUvjBZvUbX+yMufqhE2Qv23gv9XrZhoNCCkcHdj5QX4QQ2cr3LKlnLc2PqH2OLgHwqrRmukSGzPJIYzcv/VS5Bja+Ctmg8cLmNVNoFEpEQFe7cXGM+CTT3NRuKwfFGyatDZIIHUdJQUbk2G+aUCCeFZnxOsorBA0s8K2hlJize0Y9JVEkdtNyzsaXtN8j5dBQmNFP4EOSRlK2ZfO9vaoWoSqIY5o/y9Xpaj/b5t/I8hdz6Yh2fPpBbuhe/IKGr/Rd+rqd/sEcHlR5q8MN17px3GVvGYonWGwPnhD9IWUXXRruRf8Xf4rM2NY8JA3Simj/xKtgDvvWhLvNe1nMHp32QJBty/fO+cUuFGt6J9t9NwJMfAdmFCuc/mPm83kC5oEUj6qx58EVrfBPHwgB/gNCz2JBIA27jDBc5cOHWYjSsAqIh2JgeLNwiOng1VSMoHk=
