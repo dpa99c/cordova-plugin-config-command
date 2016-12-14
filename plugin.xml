@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-config-command"
+        version="3.0.14">
+
+    <name>cordova-plugin-config-command</name>
+    <description>Cordova/Phonegap plugin to run CLI commands defined in config.xml</description>
+    <author>Dave Alden</author>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <repo>https://github.com/dpa99c/cordova-plugin-config-command.git</repo>
+    <issue>https://github.com/dpa99c/cordova-plugin-config-command/issues</issue>
+
+    <keywords>ecosystem:cordova,cordova,phonegap,ios,android,config,configuration,command</keywords>
+
+    <license>MIT</license>
+
+    <!-- All possible hooks -->
+    <hook src="hooks/runCommands.js" type="before_platform_add" />
+    <hook src="hooks/runCommands.js" type="after_platform_add" />
+    <hook src="hooks/runCommands.js" type="before_platform_rm" />
+    <hook src="hooks/runCommands.js" type="after_platform_rm" />
+    <hook src="hooks/runCommands.js" type="before_platform_ls" />
+    <hook src="hooks/runCommands.js" type="after_platform_ls" />
+    <hook src="hooks/runCommands.js" type="before_prepare" />
+    <hook src="hooks/runCommands.js" type="after_prepare" />
+    <hook src="hooks/runCommands.js" type="before_compile" />
+    <hook src="hooks/runCommands.js" type="after_compile" />
+    <hook src="hooks/runCommands.js" type="before_deploy" />
+    <hook src="hooks/runCommands.js" type="before_build" />
+    <hook src="hooks/runCommands.js" type="after_build" />
+    <hook src="hooks/runCommands.js" type="before_emulate" />
+    <hook src="hooks/runCommands.js" type="after_emulate" />
+    <hook src="hooks/runCommands.js" type="before_run" />
+    <hook src="hooks/runCommands.js" type="after_run" />
+    <hook src="hooks/runCommands.js" type="before_serve" />
+    <hook src="hooks/runCommands.js" type="after_serve" />
+    <hook src="hooks/runCommands.js" type="before_clean" />
+    <hook src="hooks/runCommands.js" type="after_clean" />
+    <hook src="hooks/runCommands.js" type="before_plugin_add" />
+    <hook src="hooks/runCommands.js" type="after_plugin_add" />
+    <hook src="hooks/runCommands.js" type="before_plugin_rm" />
+    <hook src="hooks/runCommands.js" type="after_plugin_rm" />
+    <hook src="hooks/runCommands.js" type="before_plugin_ls" />
+    <hook src="hooks/runCommands.js" type="after_plugin_ls" />
+    <hook src="hooks/runCommands.js" type="before_plugin_search" />
+    <hook src="hooks/runCommands.js" type="after_plugin_search" />
+    <hook src="hooks/runCommands.js" type="before_plugin_install" />
+    <hook src="hooks/runCommands.js" type="after_plugin_install" />
+    <hook src="hooks/runCommands.js" type="before_plugin_uninstall" />
+
+</plugin>

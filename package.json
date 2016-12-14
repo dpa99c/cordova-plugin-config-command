@@ -1,0 +1,42 @@
+{
+    "version": "0.0.1",
+    "name": "cordova-plugin-config-command",
+    "cordova_name": "cordova-plugin-config-command",
+    "description": "Cordova/Phonegap plugin to run CLI commands defined in config.xml",
+    "author": "Dave Alden",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dpa99c/cordova-plugin-config-command.git"
+    },
+    "cordova": {
+        "id": "cordova-plugin-config-command",
+        "platforms": [
+            "android",
+            "ios"
+        ]
+    },
+    "issue": "https://github.com/dpa99c/cordova-plugin-config-command/issues",
+    "keywords": [
+        "ecosystem:cordova",
+        "cordova",
+        "cordova-android",
+        "cordova-ios",
+        "phonegap",
+        "config",
+        "configuration"
+    ],
+    "dependencies": {
+        "colors": "1.1.2"
+    },
+    "devDependencies": {
+        "jshint": "^2.6.0"
+    },
+    "scripts": {
+        "test": "jshint hooks"
+    },
+    "engineStrict": true,
+    "engines": {
+        "npm": ">=3.0.0"
+    }
+}
