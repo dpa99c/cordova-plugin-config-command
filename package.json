@@ -30,13 +30,11 @@
         "colors": "1.1.2"
     },
     "devDependencies": {
-        "jshint": "^2.6.0"
+        "jshint": "^2.6.0",
+        "jasmine": "^2.5.2"
     },
     "scripts": {
-        "test": "jshint hooks"
-    },
-    "engineStrict": true,
-    "engines": {
-        "npm": ">=3.0.0"
+        "test": "npm install && npm run-script jshint && jasmine spec/*Spec.js",
+        "jshint": "jshint spec hooks"
     }
 }

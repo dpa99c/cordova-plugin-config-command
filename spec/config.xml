@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget
+        id="uk.co.workingedge.phonegap.plugins.example.configcommand"
+        version="0.0.1"
+        xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-config-command example</name>
+    <description>An example app that demonstrates use of cordova-plugin-config-command plugin</description>
+    <author email="dave@workingedge.co.uk" href="http://www.workingedge.co.uk/dave">
+        Dave Alden
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="Fullscreen" value="false" />
+
+    <plugin name="cordova-plugin-whitelist" spec="1.0.0" />
+    <plugin name="cordova-plugin-config-command" spec="*" />
+
+</widget>
