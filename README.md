@@ -55,8 +55,8 @@ To install the plugin using the CLI:
     - The execution scope will be the current Cordova project directory.
     - Arguments for the command may optionally be defined here or using the `args` attribute.
 - `hook` **(required)** - Cordova hook on which to execute the command. For a list of available hooks see the [Cordova Hooks guide](https://cordova.apache.org/docs/en/latest/guide/appdev/hooks/index.html).
-- `args` (optional) - Arguments for the command may optionally be defined here or within the 'name' attribute.
-    - Argument values must be XML-escaped: for example double quotes must be entered as `&quot;` and ampersands as '&amp;'.
+- `args` (optional) - Arguments for the command may optionally be defined here or within the `name` attribute.
+    - Argument values must be XML-escaped: for example double quotes must be entered as `&quot;` and ampersands as `&amp;`.
 - `display_output` (optional) - If set to `true`, the console output from the command will be displayed. Defaults to false.
 - `abort_on_error` (optional) - If set to `true`, and the command results in a non-zero error code, the Cordova operation will be aborted. Defaults to false.
 
