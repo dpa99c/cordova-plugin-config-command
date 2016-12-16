@@ -100,14 +100,13 @@ describe("A spec for cordova-plugin-config-command", function() {
 
     it("should unescape XML-escaped characters in the arguments", function(done) {
         helper.addCommandToConfig({
-            name: 'echo &quot;foo&quot;',
-            args: '&amp; echo &quot;bar&quot;',
+            name: 'echo',
+            args: '&quot;foo &amp; bar&quot;',
             hook: 'before_prepare',
             display_output: true
         });
         helper.runCordova('prepare', function(err, stdout, stderr){
-            expect(stdout.match('"foo"')).toBeTruthy();
-            expect(stdout.match('"bar"')).toBeTruthy();
+            expect(stdout.match('foo & bar')).toBeTruthy();
             done();
         });
     });
