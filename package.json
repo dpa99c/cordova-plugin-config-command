@@ -34,7 +34,7 @@
         "jasmine": "^2.5.2"
     },
     "scripts": {
-        "test": "npm install && npm run-script jshint && jasmine spec/*Spec.js",
+        "test": "npm install && npm run-script jshint && jasmine spec/mainSpec.js",
         "jshint": "jshint spec hooks"
     }
 }
