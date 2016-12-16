@@ -54,7 +54,7 @@ var runCommands = (function(){
             command = el.getAttribute('name');
             el.removeAttribute('name');
         }else{
-            logger.error("'name' attribute is missing from <command> in config.xml: "+serializedCommand);
+            logger.log("'name' attribute is missing from <command> in config.xml: "+serializedCommand);
             return runNext();
         }
 
@@ -63,7 +63,7 @@ var runCommands = (function(){
             hook = el.getAttribute('hook');
             el.removeAttribute('hook');
         }else{
-            logger.error("'hook' attribute is missing from <command> in config.xml: "+serializedCommand);
+            logger.log("'hook' attribute is missing from <command> in config.xml: "+serializedCommand);
             return runNext();
         }
 
@@ -105,12 +105,21 @@ var runCommands = (function(){
         logger.verbose("Running command on "+hook+"': "+command);
         exec(command, function(err, stdout, stderr) {
             if(display_output){
-                logger.log(stdout);
-                logger.error(stderr);
+                if(stdout){
+                    logger.debug('stdout:');
+                    console.log(stdout);
+                }
+                if(stderr){
+                    logger.debug('stderr:');
+                    console.error(stderr);
+                }
             }
             if(err && abort_on_error){
-                logger.warn("Aborting due to command failure: "+command);
-                process.exit(err);
+                logger.warn("Aborting due to command failure" +
+                    "\ncommand: "+command
+                    +"\nconfig: "+serializedCommand
+                );
+                process.exit(1);
             }
             return runNext();
         });
@@ -140,10 +149,10 @@ var runCommands = (function(){
         var msg = "FATAL EXCEPTION: ";
         msg += e.message;
         if(logger){
-            logger.error(msg);
+            logger.log(msg);
             logger.dump(e);
         }else{
-            console.error(msg);
+            console.log(msg);
         }
         process.exit(1); // exit on fatal error
     };
