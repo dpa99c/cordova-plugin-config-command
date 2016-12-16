@@ -48,7 +48,7 @@ var helper = (function(){
 
     helper.setupTestProject = function(onFinish){
         helper.restoreConfigXml();
-        helper.runCordova("platform add android", function(err, stdout, stderr){
+        helper.runCordova("platform add ios", function(err, stdout, stderr){
             if(stderr){
                 console.error(stderr);
             }
