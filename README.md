@@ -8,7 +8,14 @@ cordova-plugin-config-command plugin [![Build Status](https://travis-ci.org/dpa9
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
-
+- [Overview](#overview)
+  - [Why should I use it?](#why-should-i-use-it)
+  - [Important note for PhoneGap Build / Intel XDK](#important-note-for-phonegap-build--intel-xdk)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Attributes](#attributes)
+  - [Example usage](#example-usage)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -85,7 +92,7 @@ To install the plugin using the CLI:
 
 The MIT License
 
-Copyright (c) 2016 Working Edge Ltd.
+Copyright (c) 2016 Dave Alden / Working Edge Ltd.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
