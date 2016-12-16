@@ -1,6 +1,6 @@
 
 
-cordova-plugin-config-command plugin [![Build Status](https://travis-ci.org/dpa99c/cordova-plugin-config-command-example.png)](https://travis-ci.org/dpa99c/cordova-plugin-config-command-example) [![Latest Stable Version](https://img.shields.io/npm/v/cordova-plugin-config-command.svg)](https://www.npmjs.com/package/cordova-plugin-config-command) [![Total Downloads](https://img.shields.io/npm/dt/cordova-plugin-config-command.svg)](https://npm-stat.com/charts.html?package=cordova-plugin-config-command)
+cordova-plugin-config-command plugin [![Build Status](https://travis-ci.org/dpa99c/cordova-plugin-config-command.png)](https://travis-ci.org/dpa99c/cordova-plugin-config-command) [![Latest Stable Version](https://img.shields.io/npm/v/cordova-plugin-config-command.svg)](https://www.npmjs.com/package/cordova-plugin-config-command) [![Total Downloads](https://img.shields.io/npm/dt/cordova-plugin-config-command.svg)](https://npm-stat.com/charts.html?package=cordova-plugin-config-command)
 ============================
 
 
@@ -62,10 +62,23 @@ To install the plugin using the CLI:
 
 ## Example usage
 
-    <command name="echo Hello" hook="before_prepare" display_output="true" abort_on_error="false"/>
-    <command name="echo" args="Hello" hook="after_prepare" display_output="true" abort_on_error="true"/>
-    <command name="echo &quot;My grammar's getting worse &amp; worse&quot;" hook="before_build" display_output="true" abort_on_error="false"/>
-    <command name="echo" args="&quot;My grammar's getting worse &amp; worse&quot" hook="after_build" display_output="true" abort_on_error="true"/>
+    <command name="echo" args="&quot;My grammar's getting worse &amp; worse&quot" hook="after_build" display_output="true"/>
+
+    <!-- Run Jasmine tests -->
+    <command name="jasmine" args="spec/*Spec.js" hook="before_prepare" display_output="true" abort_on_error="true"/>
+
+    <!-- Validate with JSHint -->
+    <command name="jshint" args="www" hook="after_prepare" display_output="true" abort_on_error="true"/>
+
+    <platform name="android">
+        <!-- Run Maven tests -->
+        <command name="mvn" args="surefire:test" hook="after_build" display_output="true" abort_on_error="true"/>
+    </platform>
+
+    <platform name="ios">
+        <!-- Run Xcode tests -->
+        <command name="xcodebuild" args="test -project platforms/ios/MyApp.xcodeproj -scheme MyApp -destination 'platform=OS X,arch=x86_64'" hook="after_build" display_output="true" abort_on_error="true"/>
+    </platform>
 
 # License
 ================
