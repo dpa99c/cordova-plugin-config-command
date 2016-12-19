@@ -54,7 +54,6 @@ var runCommands = (function(){
         // Command name
         if(el.hasAttribute('name')){
             command = el.getAttribute('name');
-            el.removeAttribute('name');
         }else{
             logger.log("'name' attribute is missing from <command> in config.xml: "+serializedCommand);
             return runNext();
@@ -63,7 +62,6 @@ var runCommands = (function(){
         // Hook
         if(el.hasAttribute('hook')){
             hook = el.getAttribute('hook');
-            el.removeAttribute('hook');
         }else{
             logger.log("'hook' attribute is missing from <command> in config.xml: "+serializedCommand);
             return runNext();
@@ -81,7 +79,6 @@ var runCommands = (function(){
                 abort_on_error = true;
                 logger.debug("Command set to abort on error: "+serializedCommand);
             }
-            el.removeAttribute('abort_on_error');
         }
 
         // Display output
@@ -91,13 +88,11 @@ var runCommands = (function(){
                 display_output = true;
                 logger.debug("Command set to display command output: "+serializedCommand);
             }
-            el.removeAttribute('display_output');
         }
 
         // Args
         if(el.hasAttribute('args')){
             args = el.getAttribute('args');
-            el.removeAttribute('args');
         }
 
         // cwd
@@ -105,7 +100,6 @@ var runCommands = (function(){
         if(el.hasAttribute('cwd')){
             cwd = path.resolve(el.getAttribute('cwd'));
             logger.debug('cwd: '+cwd);
-            el.removeAttribute('cwd');
         }
 
         // Run command
