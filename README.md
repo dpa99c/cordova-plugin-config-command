@@ -67,7 +67,8 @@ To install the plugin using the CLI:
 
 ## Example usage
 
-    <command name="echo" args="&quot;My grammar's getting worse &amp; worse&quot" hook="before_prepare" display_output="true"/>
+    <command name="echo" args="&quot;My grammar's getting worse &amp; worse&quot"
+        hook="before_prepare" display_output="true"/>
 
     <!-- Run npm test script -->
     <command name="npm" args="test" hook="before_prepare" display_output="true" abort_on_error="true"/>
@@ -85,7 +86,13 @@ To install the plugin using the CLI:
 
     <platform name="ios">
         <!-- Run Xcode tests -->
-        <command name="xcodebuild" args="test -project platforms/ios/MyApp.xcodeproj -scheme MyApp -destination 'platform=OS X,arch=x86_64'" hook="after_build" display_output="true" abort_on_error="true"/>
+        <command
+            name="xcodebuild"
+            args="test -project platforms/ios/MyApp.xcodeproj -scheme MyApp -destination 'platform=OS X,arch=x86_64'"
+            hook="after_build"
+            display_output="true"
+            abort_on_error="true"
+         />
 
         <!-- Validate build -->
         <command
