@@ -35,6 +35,6 @@
     },
     "scripts": {
         "test": "npm install && npm run-script jshint && jasmine spec/mainSpec.js",
-        "jshint": "jshint spec hooks"
+        "jshint": "jshint spec/*.js hooks"
     }
 }
