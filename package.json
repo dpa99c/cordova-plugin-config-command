@@ -1,5 +1,5 @@
 {
-    "version": "0.0.1",
+    "version": "0.0.2",
     "name": "cordova-plugin-config-command",
     "cordova_name": "cordova-plugin-config-command",
     "description": "Cordova/Phonegap plugin to run CLI commands defined in config.xml",
