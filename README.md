@@ -59,17 +59,20 @@ To install the plugin using the CLI:
 ## Attributes
 
 - `name` **(required)** - name (and optionally relative/absolute path) of the command to execute.
-    - The execution scope will be the current Cordova project directory.
     - Arguments for the command may optionally be defined here or using the `args` attribute.
 - `hook` **(required)** - Cordova hook on which to execute the command. For a list of available hooks see the [Cordova Hooks guide](https://cordova.apache.org/docs/en/latest/guide/appdev/hooks/index.html).
 - `args` (optional) - Arguments for the command may optionally be defined here or within the `name` attribute.
     - Argument values must be XML-escaped: for example double quotes must be entered as `&quot;` and ampersands as `&amp;`.
 - `display_output` (optional) - If set to `true`, the console output from the command will be displayed. Defaults to false.
 - `abort_on_error` (optional) - If set to `true`, and the command results in a non-zero error code, the Cordova operation will be aborted. Defaults to false.
+- `cwd` (optional) - The directory from which to execute the command. Defaults to the root of the Cordova project.
 
 ## Example usage
 
     <command name="echo" args="&quot;My grammar's getting worse &amp; worse&quot" hook="after_build" display_output="true"/>
+
+    <!-- Run npm test script -->
+    <command name="npm" args="test" hook="before_prepare" display_output="true" abort_on_error="true"/>
 
     <!-- Run Jasmine tests -->
     <command name="jasmine" args="spec/*Spec.js" hook="before_prepare" display_output="true" abort_on_error="true"/>

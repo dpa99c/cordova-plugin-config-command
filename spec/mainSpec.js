@@ -206,4 +206,32 @@ describe("A spec for cordova-plugin-config-command", function() {
             done();
         });
     });
+
+
+    it("should, by default, should execute the command in the scope of the project root directory if the 'cwd' attribute is not specified", function(done) {
+        helper.addCommandToConfig({
+            name: 'ls',
+            display_output: true,
+            hook: 'before_prepare'
+        });
+        helper.runCordova('prepare', function(err, stdout, stderr){
+            expect(stdout.match('plugin.xml')).toBeFalsy();
+            expect(stdout.match('config.xml')).toBeTruthy();
+            done();
+        });
+    });
+
+    it("should, should execute the command in the scope specified by the 'cwd' attribute", function(done) {
+        helper.addCommandToConfig({
+            name: 'ls',
+            hook: 'before_prepare',
+            display_output: true,
+            cwd: '../..'
+        });
+        helper.runCordova('prepare', function(err, stdout, stderr){
+            expect(stdout.match('plugin.xml')).toBeTruthy();
+            expect(stdout.match('config.xml')).toBeFalsy();
+            done();
+        });
+    });
 });

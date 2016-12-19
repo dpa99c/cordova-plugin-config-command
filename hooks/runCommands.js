@@ -24,6 +24,8 @@ var runCommands = (function(){
 
     var commands = [];
 
+    var debug = false;
+
 
     /*********************
      * Internal functions
@@ -98,13 +100,21 @@ var runCommands = (function(){
             el.removeAttribute('args');
         }
 
-
+        // cwd
+        var cwd = null;
+        if(el.hasAttribute('cwd')){
+            cwd = path.resolve(el.getAttribute('cwd'));
+            logger.debug('cwd: '+cwd);
+            el.removeAttribute('cwd');
+        }
 
         // Run command
         command = command + ' ' + args;
-        logger.verbose("Running command on "+hook+"': "+command);
-        exec(command, function(err, stdout, stderr) {
-            if(display_output){
+        logger.verbose("Running command on "+hook+": "+command);
+        exec(command, {
+            cwd: cwd
+        }, function(err, stdout, stderr) {
+            if(display_output || debug){
                 if(stdout){
                     logger.debug('stdout:');
                     console.log(stdout);
@@ -114,12 +124,16 @@ var runCommands = (function(){
                     console.error(stderr);
                 }
             }
-            if(err && abort_on_error){
-                logger.warn("Aborting due to command failure" +
-                    "\ncommand: "+command
-                    +"\nconfig: "+serializedCommand
-                );
-                process.exit(1);
+            if(err){
+                var details = "\ncommand: "+command
+                    +"\nconfig: "+serializedCommand;
+
+                if(abort_on_error){
+                    logger.warn("Aborting due to command failure" + details);
+                    process.exit(1);
+                }else if(debug){
+                    logger.error(err + ": "+details);
+                }
             }
             return runNext();
         });
@@ -178,6 +192,8 @@ module.exports = function(ctx) {
         hooksPath = path.resolve(ctx.opts.projectRoot, "plugins", ctx.opts.plugin.id, "hooks");
         logger = require(path.resolve(hooksPath, "logger.js"))(ctx);
         currentHook = ctx.hook;
+
+        debug = !!ctx.cmdLine.match("--debug");
 
         logger.verbose("Running runCommands.js on "+currentHook);
         runCommands.init();
