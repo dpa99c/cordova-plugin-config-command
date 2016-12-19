@@ -27,18 +27,16 @@ This Cordova/Phonegap plugin enables CLI commands to be defined in a project's `
 
 ## Why should I use it?
 
-If you want to run custom commands during the Cordova build process or on other Cordova CLI commands.
-For example, if you want to run a custom test suite or validator tool.
-While you can achieve the same effect by creating your own hook scripts or wrapping the Cordova CLI commands with another tool such as Grunt or Gulp, the intention of this plugin is to provide convenience.
+- If you want to run custom commands during the Cordova build process or on other Cordova CLI commands.
+- For example, if you want to run a custom test suite or validator tool.
+- While you can achieve the same effect by creating your own hook scripts or wrapping the Cordova CLI commands with another tool such as Grunt or Gulp, the intention of this plugin is to provide convenience.
 
 
 ## Important note for PhoneGap Build / Intel XDK
 
-This plugin **WILL NOT WORK** with [Phonegap Build](https://build.phonegap.com/) because it relies on using [hook scripts](https://cordova.apache.org/docs/en/latest/guide/appdev/hooks/) which are [not supported by Phonegap Build](https://github.com/phonegap/build/issues/279).
-
-The same goes for [Intel XDK](https://software.intel.com/en-us/intel-xdk) which also [does not support hook scripts](https://software.intel.com/en-us/xdk/docs/add-manage-project-plugins).
-
-If you are using another cloud-based Cordova/Phonegap build service and find this plugin doesn't work, the reason is probably also the same.
+- This plugin **WILL NOT WORK** with [Phonegap Build](https://build.phonegap.com/) because it relies on using [hook scripts](https://cordova.apache.org/docs/en/latest/guide/appdev/hooks/) which are [not supported by Phonegap Build](https://github.com/phonegap/build/issues/279).
+- The same goes for [Intel XDK](https://software.intel.com/en-us/intel-xdk) which also [does not support hook scripts](https://software.intel.com/en-us/xdk/docs/add-manage-project-plugins).
+- If you are using another cloud-based Cordova/Phonegap build service and find this plugin doesn't work, the reason is probably also the same.
 
 # Installation
 
@@ -69,16 +67,16 @@ To install the plugin using the CLI:
 
 ## Example usage
 
-    <command name="echo" args="&quot;My grammar's getting worse &amp; worse&quot" hook="after_build" display_output="true"/>
+    <command name="echo" args="&quot;My grammar's getting worse &amp; worse&quot" hook="before_prepare" display_output="true"/>
 
     <!-- Run npm test script -->
     <command name="npm" args="test" hook="before_prepare" display_output="true" abort_on_error="true"/>
 
-    <!-- Run Jasmine tests -->
-    <command name="jasmine" args="spec/*Spec.js" hook="before_prepare" display_output="true" abort_on_error="true"/>
-
     <!-- Validate with JSHint -->
     <command name="jshint" args="www" hook="after_prepare" display_output="true" abort_on_error="true"/>
+
+    <!-- Run Jasmine tests -->
+    <command name="jasmine" args="spec/*Spec.js" hook="before_prepare" display_output="true" abort_on_error="true"/>
 
     <platform name="android">
         <!-- Run Maven tests -->
@@ -88,6 +86,16 @@ To install the plugin using the CLI:
     <platform name="ios">
         <!-- Run Xcode tests -->
         <command name="xcodebuild" args="test -project platforms/ios/MyApp.xcodeproj -scheme MyApp -destination 'platform=OS X,arch=x86_64'" hook="after_build" display_output="true" abort_on_error="true"/>
+
+        <!-- Validate build -->
+        <command
+            name="altool"
+            cwd="/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/"
+            args="--validate-app --file platforms/ios/build/device/my-app.ipa --username itunesconnect@user.com --password password"
+            hook="after_build"
+            display_output="true"
+            abort_on_error="true"
+        />
     </platform>
 
 # License
