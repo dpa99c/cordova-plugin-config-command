@@ -23,6 +23,12 @@ cordova-plugin-config-command plugin [![Build Status](https://travis-ci.org/dpa9
 
 This Cordova/Phonegap plugin enables CLI commands to be defined in a project's `config.xml` and be executed at the various [hook points](https://cordova.apache.org/docs/en/latest/guide/appdev/hooks/index.html) when running Cordova/Phonegap CLI commands.
 
+<!-- DONATE -->
+[![donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG_global.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZRD3W47HQ3EMJ)
+
+I dedicate a considerable amount of my free time to developing and maintaining this tool, along with my other Open Source software.
+To help ensure this tool is kept updated, new features are added and bugfixes are implemented quickly, please donate a couple of dollars (or a little more if you can stretch) as this will help me to afford to dedicate time to its maintenance. Please consider donating if you're using this tool in an app that makes you money, if you're being paid to make the app, if you're asking for new features or priority bug fixes.
+<!-- END DONATE -->
 
 
 ## Why should I use it?
